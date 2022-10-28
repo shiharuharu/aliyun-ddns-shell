@@ -10,16 +10,37 @@ NOW_DATE=$(date "+%Y-%m-%d %H:%M:%S")
 #当前时间
 echo "=========== $(date) ==========="
 
-#定义字体颜色
-color_black_start="\033[30m"
-color_red_start="\033[31m"
-color_green_start="\033[32m"
-color_yellow_start="\033[33m"
-color_blue_start="\033[34m"
-color_purple_start="\033[35m"
-color_sky_blue_start="\033[36m"
-color_white_start="\033[37m"
-color_end="\033[0m"
+enable_color() {
+    #定义字体颜色
+    color_black_start="\033[30m"
+    color_red_start="\033[31m"
+    color_green_start="\033[32m"
+    color_yellow_start="\033[33m"
+    color_blue_start="\033[34m"
+    color_purple_start="\033[35m"
+    color_sky_blue_start="\033[36m"
+    color_white_start="\033[37m"
+    color_end="\033[0m"
+}
+
+disable_color() {
+    #定义字体颜色
+    color_black_start=""
+    color_red_start=""
+    color_green_start=""
+    color_yellow_start=""
+    color_blue_start=""
+    color_purple_start=""
+    color_sky_blue_start=""
+    color_white_start=""
+    color_end=""
+}
+
+if [ -t 1 ] ; then
+    enable_color
+else
+    disable_color
+fi
 
 #提示信息级别定义
 message_info_tag="${color_sky_blue_start}[Info]    ${NOW_DATE} ${color_end}"
