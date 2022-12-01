@@ -83,15 +83,15 @@ DEBIAN_OS_RELEASE="debian"
 # 配置、日志文件存放目录
 FILE_SAVE_DIR="${FILE_SAVE_DIR:-}"
 # 目录前缀
-FILE_DIR_PREFIX="${FILE_DIR_PREFIX:-'aliyun-ddns'}"
+FILE_DIR_PREFIX="${FILE_DIR_PREFIX:-aliyun-ddns}"
 #配置文件路径
 CONFIG_FILE_PATH="${CONFIG_FILE_PATH:-}"
 # 配置文件名
-CONFIG_FILE_NAME="${CONFIG_FILE_NAME:-'config.cfg'}"
+CONFIG_FILE_NAME="${CONFIG_FILE_NAME:-config.cfg}"
 #日志储存目录
 LOG_FILE_PATH="${LOG_FILE_PATH:-}"
 # 日志文件名
-LOG_FILE_NAME="${LOG_FILE_NAME:-'log-info.log'}"
+LOG_FILE_NAME="${LOG_FILE_NAME:-log-info.log}"
 
 #当前时间戳
 var_now_timestamp=""
