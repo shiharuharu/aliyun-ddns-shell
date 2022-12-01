@@ -177,7 +177,7 @@ function fun_check_online(){
         fi
     done
     if [[ ${var_is_online} = false ]]; then
-        fun_wirte_log "${message_error_tag}检测当前无外网环境,重试${$var_check_online_retry_times}次ping ${var_check_online_url}都失败,程序终止执行."
+        fun_wirte_log "${message_error_tag}检测当前无外网环境,重试${var_check_online_retry_times}次ping ${var_check_online_url}都失败,程序终止执行."
         exit 1
     fi
 }
@@ -339,7 +339,7 @@ function fun_install_run_environment(){
                 fun_wirte_log "${message_info_tag}检测到当前系统发行版本为:${UBUNTU_OS_RELEASE}"
                 fun_wirte_log "${message_info_tag}正在以sudo安装必需组件......"
                 sudo apt-get install curl openssl bind-utils -y
-                elif ["${var_os_release}" = "${DEBIAN_OS_RELEASE}" ]; then
+                elif [ "${var_os_release}" = "${DEBIAN_OS_RELEASE}" ]; then
                 fun_wirte_log "${message_info_tag}检测到当前系统发行版本为:${DEBIAN_OS_RELEASE}"
                 fun_wirte_log "${message_info_tag}正在以sudo安装必需组件......"
                 sudo apt-get install curl openssl bind-utils -y
