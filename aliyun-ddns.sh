@@ -68,7 +68,9 @@ echo -e "${color_green_start}
 ${color_end}"
 }
 
+if [[ ! -t 1 ]]; then
 fun_show_version_info
+fi
 
 #全局变量定义
 
