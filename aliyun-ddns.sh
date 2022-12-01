@@ -837,7 +837,9 @@ function fun_wirte_log(){
         echo -e "$log_content"
     fi
     # 处理样式 todo
-    echo "${log_content}" >> ${LOG_FILE_PATH}
+    if [[ -z ${LOG_FILE_PATH} ]]; then
+        echo "${log_content}" >> ${LOG_FILE_PATH}
+    fi
 }
 
 # 消息推送
