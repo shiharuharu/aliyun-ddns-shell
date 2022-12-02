@@ -1,3 +1,38 @@
+# 快速使用
+```bash
+# 下载脚本
+wget https://ghproxy.com/https://github.com/shiharuharu/aliyun-ddns-shell/raw/master/aliyun-ddns.sh
+chmod +x aliyun-ddns.sh
+mv aliyun-ddns.sh /usr/bin
+
+# 创建目录
+mkdir -p /etc/aliyun-ddns
+
+# 写入配置 (注意修改)
+cat>/etc/aliyun-ddns/config.wan1.cfg<<EOF
+    var_check_online_url="www.baidu.com"
+    var_check_online_retry_times=3
+    var_first_level_domain="domain.com"
+    var_second_level_domain="wan1.gw"
+    var_domain_record_type="A"
+    var_domian_ttl="600"
+    var_domian_line="default"
+    var_access_key_id="ACCESS_KEY"
+    var_access_key_secret="ACCESS_SECRET"
+    var_local_wan_ip="curl --interface ${INTERFACE} -s http://members.3322.org/dyndns/getip"
+    var_domian_server_ip="nslookup"
+    var_enable_message_push=false
+    var_push_message_access_token=""
+    var_push_message_secret=""
+EOF
+
+# 编辑
+crontab -e
+
+# 一分钟检查一次
+*/1 * * * * export CONFIG_FILE_PATH="/etc/aliyun-ddns/config.wan1.cfg" && /usr/bin/aliyun-ddns.sh -run 2>&1 | /usr/bin/logger -t aliyun-ddns
+```
+
 # 阿里云域名动态IP解析Shell小脚本
 当你手里面有一个闲置的域名，有一个漂浮不定的外网ip，你又想在外网ip变更后自动解析到域名上，此情此景此脚本可能会帮上你。
 # 更新日志
